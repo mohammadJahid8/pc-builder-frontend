@@ -32,12 +32,20 @@ const PcBuildPage = () => {
     return cpu && motherboard && ram && psu && storage && monitor;
   };
   return (
-    <div className="flex justify-center mx-auto w-full max-w-xl border-gray-300 mt-5 border p-2 shadow-md rounded-md mb-10">
+    <div
+      className="flex justify-center mx-auto  border-gray-300 mt-5 border px-4 py-2 shadow-md rounded-md mb-10"
+      style={{
+        maxWidth: "50rem",
+      }}
+    >
       <div className="w-full">
-        <div>
-          <h1 className="font-semibold text-lg text-center my-4">
+        <div className="flex justify-between items-center">
+          <h1 className="font-semibold text-base text-start my-4 text-[#3749bb]">
             Build Your Own Computer
           </h1>
+          <button className="rounded-sm bg-[#3749bb] px-3 py-2 text-white text-sm">
+            1000
+          </button>
         </div>
         <div className="flex justify-between items-center gap-2 p-2">
           <div className=" text-violet-600 shadow-gray-400 flex flex-col w-full max-w-[90px] items-center rounded-md transition-all duration-200">
@@ -52,9 +60,9 @@ const PcBuildPage = () => {
 
           <button
             onClick={() => router.push("/select/cpu")}
-            className="bg-violet-600 font-medium text-xs text-white py-1 cursor-pointer px-3 rounded-full"
+            className="outline-[#3749bb] bg-white border border-[#3749bb] font-medium text-xs  py-1 cursor-pointer px-3 rounded-sm hover:bg-[#3749bb] transition-all hover:text-white"
           >
-            Select
+            Choose
           </button>
         </div>
         {cpu && (
@@ -96,9 +104,9 @@ const PcBuildPage = () => {
 
           <button
             onClick={() => router.push("/select/motherboard")}
-            className="bg-violet-600 font-medium text-xs text-white py-1 cursor-pointer px-3 rounded-full"
+            className="outline-[#3749bb] bg-white border border-[#3749bb] font-medium text-xs  py-1 cursor-pointer px-3 rounded-sm hover:bg-[#3749bb] transition-all hover:text-white"
           >
-            Select
+            Choose
           </button>
         </div>
         {motherboard && (
@@ -142,9 +150,9 @@ const PcBuildPage = () => {
 
           <button
             onClick={() => router.push("/select/ram")}
-            className="bg-violet-600 font-medium text-xs text-white py-1 cursor-pointer px-3 rounded-full"
+            className="outline-[#3749bb] bg-white border border-[#3749bb] font-medium text-xs  py-1 cursor-pointer px-3 rounded-sm hover:bg-[#3749bb] transition-all hover:text-white"
           >
-            Select
+            Choose
           </button>
         </div>
         {ram && (
@@ -186,9 +194,9 @@ const PcBuildPage = () => {
 
           <button
             onClick={() => router.push("/select/psu")}
-            className="bg-violet-600 font-medium text-xs text-white py-1 cursor-pointer px-3 rounded-full"
+            className="outline-[#3749bb] bg-white border border-[#3749bb] font-medium text-xs  py-1 cursor-pointer px-3 rounded-sm hover:bg-[#3749bb] transition-all hover:text-white"
           >
-            Select
+            Choose
           </button>
         </div>
         {psu && (
@@ -230,9 +238,9 @@ const PcBuildPage = () => {
 
           <button
             onClick={() => router.push("/select/storage")}
-            className="bg-violet-600 font-medium text-xs text-white py-1 cursor-pointer px-3 rounded-full"
+            className="outline-[#3749bb] bg-white border border-[#3749bb] font-medium text-xs  py-1 cursor-pointer px-3 rounded-sm hover:bg-[#3749bb] transition-all hover:text-white"
           >
-            Select
+            Choose
           </button>
         </div>
         {storage && (
@@ -274,9 +282,9 @@ const PcBuildPage = () => {
 
           <button
             onClick={() => router.push("/select/monitor")}
-            className="bg-violet-600 font-medium text-xs text-white py-1 cursor-pointer px-3 rounded-full"
+            className="outline-[#3749bb] bg-white border border-[#3749bb] font-medium text-xs  py-1 cursor-pointer px-3 rounded-sm hover:bg-[#3749bb] transition-all hover:text-white"
           >
-            Select
+            Choose
           </button>
         </div>
         {monitor && (
