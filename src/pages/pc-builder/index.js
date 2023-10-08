@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { toast } from "react-hot-toast";
 import Image from "next/image";
 import Link from "next/link";
-const createSVGIcon = () => (
+const ratingIcon = () => (
   <svg
     className="rating-icon"
     aria-hidden="true"
@@ -79,7 +79,7 @@ const PcBuildPage = () => {
                             {Array.from({ length: cpu?.rating }).map(
                               (_, index) => (
                                 <span className="" key={index}>
-                                  {createSVGIcon()}
+                                  {ratingIcon()}
                                 </span>
                               )
                             )}
@@ -134,7 +134,7 @@ const PcBuildPage = () => {
                             {Array.from({ length: motherboard?.rating }).map(
                               (_, index) => (
                                 <span className="" key={index}>
-                                  {createSVGIcon()}
+                                  {ratingIcon()}
                                 </span>
                               )
                             )}
@@ -187,7 +187,7 @@ const PcBuildPage = () => {
                             {Array.from({ length: ram?.rating }).map(
                               (_, index) => (
                                 <span className="" key={index}>
-                                  {createSVGIcon()}
+                                  {ratingIcon()}
                                 </span>
                               )
                             )}
@@ -240,7 +240,7 @@ const PcBuildPage = () => {
                             {Array.from({ length: psu?.rating }).map(
                               (_, index) => (
                                 <span className="" key={index}>
-                                  {createSVGIcon()}
+                                  {ratingIcon()}
                                 </span>
                               )
                             )}
@@ -295,7 +295,7 @@ const PcBuildPage = () => {
                             {Array.from({ length: storage?.rating }).map(
                               (_, index) => (
                                 <span className="" key={index}>
-                                  {createSVGIcon()}
+                                  {ratingIcon()}
                                 </span>
                               )
                             )}
@@ -350,7 +350,7 @@ const PcBuildPage = () => {
                             {Array.from({ length: monitor?.rating }).map(
                               (_, index) => (
                                 <span className="" key={index}>
-                                  {createSVGIcon()}
+                                  {ratingIcon()}
                                 </span>
                               )
                             )}

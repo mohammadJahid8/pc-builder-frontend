@@ -1,4 +1,6 @@
-// import bookshelf from "../assets/bookshelf.png";
+import logo from "@/assets/pcbuilder.png";
+import Image from "next/image";
+import Link from "next/link";
 const LINKS = [
   {
     title: "Product",
@@ -23,9 +25,9 @@ export default function Footer() {
         <div className="border-t">
           <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2  pt-6">
             <div className="flex">
-              <p variant="h5" className="mb-6">
-                PC BUILDER
-              </p>
+              <Link href="/">
+                <Image src={logo} className="w-36 h-[25px]" />
+              </Link>
             </div>
             <div className="grid grid-cols-3 justify-between gap-4">
               {LINKS.map(({ title, items }) => (

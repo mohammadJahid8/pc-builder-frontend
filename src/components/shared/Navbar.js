@@ -6,11 +6,14 @@ import {
   Collapse,
 } from "@material-tailwind/react";
 import React from "react";
+import logo from "@/assets/pcbuilder.png";
 
 import { useRouter } from "next/router";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { Dropdown, Space } from "antd";
 import Link from "next/link";
+import { IoMdArrowDropdown } from "react-icons/io";
+import Image from "next/image";
 
 export default function NavbarHead() {
   const [openNav, setOpenNav] = React.useState(false);
@@ -19,31 +22,59 @@ export default function NavbarHead() {
   const items = [
     {
       key: "1",
-      label: <Link href="/cpu">Processor</Link>,
+      label: (
+        <Link className="uppercase" href="/cpu">
+          Processor
+        </Link>
+      ),
     },
     {
       key: "2",
-      label: <Link href="/motherboard">Motherboard</Link>,
+      label: (
+        <Link className="uppercase" href="/motherboard">
+          Motherboard
+        </Link>
+      ),
     },
     {
       key: "3",
-      label: <Link href="/ram">Ram</Link>,
+      label: (
+        <Link className="uppercase" href="/ram">
+          Ram
+        </Link>
+      ),
     },
     {
       key: "4",
-      label: <Link href="/psu">Power Supply</Link>,
+      label: (
+        <Link className="uppercase" href="/psu">
+          Power Supply
+        </Link>
+      ),
     },
     {
       key: "5",
-      label: <Link href="/storage">Storage Device</Link>,
+      label: (
+        <Link className="uppercase" href="/storage">
+          Storage Device
+        </Link>
+      ),
     },
     {
       key: "6",
-      label: <Link href="/monitor">Monitor</Link>,
+      label: (
+        <Link className="uppercase" href="/monitor">
+          Monitor
+        </Link>
+      ),
     },
     {
       key: "7",
-      label: <Link href="/others">Others</Link>,
+      label: (
+        <Link className="uppercase" href="/others">
+          Others
+        </Link>
+      ),
     },
   ];
   const router = useRouter();
@@ -57,12 +88,30 @@ export default function NavbarHead() {
 
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+      <Dropdown
+        className="ml-5 uppercase"
+        menu={{
+          items,
+        }}
+        placement="bottomLeft"
+      >
+        <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className="p-1 font-semibold inline-flex items-center cursor-pointer"
+        >
+          CATEGORIES
+          <IoMdArrowDropdown />
+        </Typography>
+      </Dropdown>
+
       <Link href="/pc-builder" className="outline-none">
         <Typography
           as="li"
           variant="small"
           color="blue-gray"
-          className="p-1 font-normal"
+          className="p-1 font-semibold"
         >
           PC BUILDER
         </Typography>
@@ -75,9 +124,7 @@ export default function NavbarHead() {
       <Navbar className="fixed top-0 z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4 navbar-bg ">
         <div className="flex items-center justify-between text-blue-gray-900">
           <Link href="/">
-            <Typography className="mr-4 cursor-pointer py-1.5 font-medium flex">
-              MY PC
-            </Typography>
+            <Image src={logo} className="w-36 h-[25px]" />
           </Link>
 
           <div className="flex items-center gap-4">
@@ -172,92 +219,3 @@ export default function NavbarHead() {
     </>
   );
 }
-
-// import { useRouter } from "next/router";
-// import { useSession, signIn, signOut } from "next-auth/react";
-// import { Dropdown, Space } from "antd";
-// import Link from "next/link";
-// import logo from "../../assets/logo.png";
-// import Image from "next/image";
-
-// const Navbar = () => {
-//   const { data: session } = useSession();
-//   const items = [
-//     {
-//       key: "1",
-//       label: <Link href="/cpu">Processor</Link>,
-//     },
-//     {
-//       key: "2",
-//       label: <Link href="/motherboard">Motherboard</Link>,
-//     },
-//     {
-//       key: "3",
-//       label: <Link href="/ram">Ram</Link>,
-//     },
-//     {
-//       key: "4",
-//       label: <Link href="/psu">Power Supply</Link>,
-//     },
-//     {
-//       key: "5",
-//       label: <Link href="/storage">Storage Device</Link>,
-//     },
-//     {
-//       key: "6",
-//       label: <Link href="/monitor">Monitor</Link>,
-//     },
-//     {
-//       key: "7",
-//       label: <Link href="/others">Others</Link>,
-//     },
-//   ];
-//   const router = useRouter();
-
-//   console.log(session);
-//   return (
-//     <div className="bg-white/60 py-4 px-2 backdrop-blur-lg z-20 flex items-center justify-between container mx-auto">
-//       <div className="flex items-center">
-//         <Link href={"/"}>
-//           <p className="text-xl font-bold uppercase">Pc builder</p>
-//         </Link>
-//         <Dropdown
-//           className="ml-5"
-//           menu={{
-//             items,
-//           }}
-//           placement="bottomLeft"
-//         >
-//           <span className="cursor-pointer font-medium text-slate-600">
-//             Category
-//           </span>
-//         </Dropdown>
-//       </div>
-//       <div>
-//         <button
-//           onClick={() => router.push("/pc-builder")}
-//           className="border-0 bg-purple-800 text-white py-1.5 px-3 text-xs font-semibold rounded-full cursor-pointer hover:bg-purple-900 transition-all duration-200"
-//         >
-//           PC Builder
-//         </button>
-//         {session?.user ? (
-//           <button
-//             onClick={() => signOut()}
-//             className="ml-5 border-0 bg-red-500 text-white py-1.5 px-3 text-xs font-semibold rounded-full cursor-pointer hover:bg-red-600 transition-all duration-200"
-//           >
-//             Logout
-//           </button>
-//         ) : (
-//           <button
-//             onClick={() => router.push("/login")}
-//             className="ml-5 border-0 bg-slate-300 text-black py-1.5 px-3 text-xs font-semibold rounded-full cursor-pointer transition-all duration-200"
-//           >
-//             Login
-//           </button>
-//         )}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Navbar;
