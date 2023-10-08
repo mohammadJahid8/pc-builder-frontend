@@ -41,20 +41,50 @@ const PcBuildPage = () => {
       <div className="w-full">
         <div className="flex justify-between items-center">
           <h1 className="font-semibold text-base text-start my-4 text-[#3749bb]">
-            Build Your Own Computer
+            PC Builder - Build Your Own Computer
           </h1>
           <button className="rounded-sm bg-[#3749bb] px-3 py-2 text-white text-sm">
-            1000
+            1000৳
           </button>
         </div>
         <div className="flex justify-between items-center gap-2 p-2">
-          <div className=" text-violet-600 shadow-gray-400 flex flex-col w-full max-w-[90px] items-center rounded-md transition-all duration-200">
-            <BsCpuFill size={25} />
-            <p className="mt-1 text-sm text-black">Processor</p>
-          </div>
-          <div>
-            <div role="status" className="max-w-sm animate-pulse">
-              <div className="h-6 bg-gray-200 rounded-md dark:bg-gray-300 w-36 md:w-64 lg:w-96"></div>
+          <div className="flex items-center gap-6">
+            <div className="bg-[#ebecf8] p-[15px] shadow-gray-400 flex flex-col w-full max-w-[90px] items-center rounded-md transition-all duration-200">
+              <BsCpuFill size={30} className="text-[#384abb]" />
+            </div>
+            <div>
+              <p className="mt-1 text-sm text-black">PROCESSOR</p>
+
+              {cpu ? (
+                <div className="flex justify-between items-center gap-2  p-2">
+                  <div className="flex items-center w-full">
+                    <div className="flex flex-col w-full max-w-[90px] items-center rounded-md transition-all duration-200">
+                      <Image src={cpu?.image} height={35} width={35} />
+                    </div>
+                    <div className="flex justify-between w-full gap-3">
+                      <div>
+                        <p className="font-medium">{cpu.name}</p>
+                        <p className="flex">
+                          {Array.from({ length: cpu?.rating }).map(
+                            (_, index) => (
+                              <span className="" key={index}>
+                                {createSVGIcon()}
+                              </span>
+                            )
+                          )}
+                        </p>
+                      </div>
+                      <p className="text-red-500 font-medium whitespace-nowrap">
+                        {cpu.price} /-
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="max-w-sm animate-pulse">
+                  <div className="h-3 bg-gray-200 rounded-sm dark:bg-gray-300 w-36 md:w-64 lg:w-96"></div>
+                </div>
+              )}
             </div>
           </div>
 
@@ -65,7 +95,7 @@ const PcBuildPage = () => {
             Choose
           </button>
         </div>
-        {cpu && (
+        {/* {cpu && (
           <div className="flex justify-between items-center gap-2  p-2">
             <div className="flex items-center w-full">
               <div className="flex flex-col w-full max-w-[90px] items-center rounded-md transition-all duration-200">
@@ -88,17 +118,19 @@ const PcBuildPage = () => {
               </div>
             </div>
           </div>
-        )}
+        )} */}
         <div className="border-b w-full border-gray-300 my-1"></div>
 
         <div className="flex justify-between items-center gap-2 p-2">
-          <div className=" text-violet-600 shadow-gray-400 flex flex-col  w-full max-w-[90px] items-center rounded-md transition-all duration-200 cursor-pointer">
-            <BsFillMotherboardFill size={25} />
-            <p className="mt-1 text-sm text-black">Motherboard</p>
-          </div>
-          <div>
-            <div role="status" className="max-w-sm animate-pulse">
-              <div className="h-6 bg-gray-200 rounded-md dark:bg-gray-300 w-36 md:w-64 lg:w-96"></div>
+          <div className="flex items-center gap-6">
+            <div className="bg-[#ebecf8] p-[15px] shadow-gray-400 flex flex-col w-full max-w-[90px] items-center rounded-md transition-all duration-200">
+              <BsFillMotherboardFill size={30} className="text-[#384abb]" />
+            </div>
+            <div>
+              <p className="mt-1 text-sm text-black">MOTHERBOARD</p>
+              <div className="max-w-sm animate-pulse">
+                <div className="h-3 bg-gray-200 rounded-sm dark:bg-gray-300 w-36 md:w-64 lg:w-96"></div>
+              </div>
             </div>
           </div>
 
@@ -138,13 +170,15 @@ const PcBuildPage = () => {
         <div className="border-b w-full border-gray-300 my-1"></div>
 
         <div className="flex justify-between items-center gap-2 p-2">
-          <div className=" text-violet-600 shadow-gray-400 flex flex-col w-full max-w-[90px] items-center rounded-md transition-all duration-200 cursor-pointer">
-            <CgSmartphoneRam size={25} />
-            <p className="mt-1 text-sm text-black">Ram</p>
-          </div>
-          <div>
-            <div role="status" className="max-w-sm animate-pulse">
-              <div className="h-6 bg-gray-200 rounded-md dark:bg-gray-300 w-36 md:w-64 lg:w-96"></div>
+          <div className="flex items-center gap-6">
+            <div className="bg-[#ebecf8] p-[15px] shadow-gray-400 flex flex-col w-full max-w-[90px] items-center rounded-md transition-all duration-200">
+              <CgSmartphoneRam size={30} className="text-[#384abb]" />
+            </div>
+            <div>
+              <p className="mt-1 text-sm text-black">RAM</p>
+              <div className="max-w-sm animate-pulse">
+                <div className="h-3 bg-gray-200 rounded-sm dark:bg-gray-300 w-36 md:w-64 lg:w-96"></div>
+              </div>
             </div>
           </div>
 
@@ -182,13 +216,15 @@ const PcBuildPage = () => {
         <div className="border-b w-full border-gray-300 my-1"></div>
 
         <div className="flex justify-between items-center gap-2 p-2">
-          <div className=" text-violet-600 shadow-gray-400 flex flex-col w-full max-w-[90px] items-center rounded-md transition-all duration-200 cursor-pointer">
-            <ImPowerCord size={25} />
-            <p className="mt-1 text-sm text-black">PSU</p>
-          </div>
-          <div>
-            <div role="status" className="max-w-sm animate-pulse">
-              <div className="h-6 bg-gray-200 rounded-md dark:bg-gray-300 w-36 md:w-64 lg:w-96"></div>
+          <div className="flex items-center gap-6">
+            <div className="bg-[#ebecf8] p-[15px] shadow-gray-400 flex flex-col w-full max-w-[90px] items-center rounded-md transition-all duration-200">
+              <ImPowerCord size={30} className="text-[#384abb]" />
+            </div>
+            <div>
+              <p className="mt-1 text-sm text-black">POWER SUPPLY</p>
+              <div className="max-w-sm animate-pulse">
+                <div className="h-3 bg-gray-200 rounded-sm dark:bg-gray-300 w-36 md:w-64 lg:w-96"></div>
+              </div>
             </div>
           </div>
 
@@ -226,13 +262,15 @@ const PcBuildPage = () => {
         <div className="border-b w-full border-gray-300 my-1"></div>
 
         <div className="flex justify-between items-center gap-2 p-2">
-          <div className=" text-violet-600 shadow-gray-400 flex flex-col w-full max-w-[90px] items-center rounded-md transition-all duration-200 cursor-pointer">
-            <MdStorage size={25} />
-            <p className="mt-1 text-sm text-black">Storage</p>
-          </div>
-          <div>
-            <div role="status" className="max-w-sm animate-pulse">
-              <div className="h-6 bg-gray-200 rounded-md dark:bg-gray-300 w-36 md:w-64 lg:w-96"></div>
+          <div className="flex items-center gap-6">
+            <div className="bg-[#ebecf8] p-[15px] shadow-gray-400 flex flex-col w-full max-w-[90px] items-center rounded-md transition-all duration-200">
+              <MdStorage size={30} className="text-[#384abb]" />
+            </div>
+            <div>
+              <p className="mt-1 text-sm text-black">STORAGE</p>
+              <div className="max-w-sm animate-pulse">
+                <div className="h-3 bg-gray-200 rounded-sm dark:bg-gray-300 w-36 md:w-64 lg:w-96"></div>
+              </div>
             </div>
           </div>
 
@@ -270,13 +308,15 @@ const PcBuildPage = () => {
         <div className="border-b w-full border-gray-300 my-1"></div>
 
         <div className="flex justify-between items-center gap-2 p-2">
-          <div className=" text-violet-600 shadow-gray-400 flex flex-col w-full max-w-[90px] items-center rounded-md transition-all duration-200 cursor-pointer">
-            <FiMonitor size={25} />
-            <p className="mt-1 text-sm text-black">Monitor</p>
-          </div>
-          <div>
-            <div role="status" className="max-w-sm animate-pulse">
-              <div className="h-6 bg-gray-200 rounded-md dark:bg-gray-300 w-36 md:w-64 lg:w-96"></div>
+          <div className="flex items-center gap-6">
+            <div className="bg-[#ebecf8] p-[15px] shadow-gray-400 flex flex-col w-full max-w-[90px] items-center rounded-md transition-all duration-200">
+              <FiMonitor size={30} className="text-[#384abb]" />
+            </div>
+            <div>
+              <p className="mt-1 text-sm text-black">MONITOR</p>
+              <div className="max-w-sm animate-pulse">
+                <div className="h-3 bg-gray-200 rounded-sm dark:bg-gray-300 w-36 md:w-64 lg:w-96"></div>
+              </div>
             </div>
           </div>
 
@@ -313,11 +353,11 @@ const PcBuildPage = () => {
         )}
         <div className="border-b w-full border-gray-300 my-1"></div>
 
-        <div className="text-center">
+        <div className="text-end">
           <button
             disabled={!isDataFulfilled()}
             onClick={() => toast.success("Build completed successfully")}
-            className=" bg-slate-700 text-white px-4 py-1.5 my-5 font-medium rounded-sm"
+            className=" bg-[#3749bb] text-white px-4 py-1.5 my-5 font-medium rounded-sm uppercase disabled:bg-gray-400"
           >
             Complete Build
           </button>
