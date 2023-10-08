@@ -28,7 +28,7 @@ const PcBuildPage = () => {
     (state) => state.pcBuild
   );
 
-  const isDataFulfilled = () => {
+  const isDataExist = () => {
     return cpu && motherboard && ram && psu && storage && monitor;
   };
   return (
@@ -53,7 +53,7 @@ const PcBuildPage = () => {
               <BsCpuFill size={30} className="text-[#384abb]" />
             </div>
             <div>
-              <p className="mt-1 text-xs text-gray-500">PROCESSOR</p>
+              <p className="mt-1 text-xs text-gray-600">PROCESSOR</p>
 
               {cpu ? (
                 <div className="flex justify-between items-center gap-2 lg:w-[150%] py-2">
@@ -63,7 +63,7 @@ const PcBuildPage = () => {
                     </div>
                     <div className="flex justify-between w-full gap-3">
                       <div>
-                        <p className="font-medium max-w-[250px]">{cpu.name}</p>
+                        <p className="font-medium max-w-[450px]">{cpu.name}</p>
                         <div className="flex items-center gap-2">
                           <p className="flex">
                             {Array.from({ length: cpu?.rating }).map(
@@ -106,7 +106,7 @@ const PcBuildPage = () => {
               <BsFillMotherboardFill size={30} className="text-[#384abb]" />
             </div>
             <div>
-              <p className="mt-1 text-xs text-gray-500">MOTHERBOARD</p>
+              <p className="mt-1 text-xs text-gray-600">MOTHERBOARD</p>
 
               {motherboard ? (
                 <div className="flex justify-between items-center gap-2 lg:w-[150%] py-2">
@@ -116,7 +116,7 @@ const PcBuildPage = () => {
                     </div>
                     <div className="flex justify-between w-full gap-3">
                       <div>
-                        <p className="font-medium max-w-[250px]">
+                        <p className="font-medium max-w-[450px]">
                           {motherboard.name}
                         </p>
                         <div className="flex items-center gap-2">
@@ -161,7 +161,7 @@ const PcBuildPage = () => {
               <CgSmartphoneRam size={30} className="text-[#384abb]" />
             </div>
             <div>
-              <p className="mt-1 text-xs text-gray-500">RAM</p>
+              <p className="mt-1 text-xs text-gray-600">RAM</p>
 
               {ram ? (
                 <div className="flex justify-between items-center gap-2 lg:w-[150%] py-2">
@@ -171,7 +171,7 @@ const PcBuildPage = () => {
                     </div>
                     <div className="flex justify-between w-full gap-3">
                       <div>
-                        <p className="font-medium max-w-[250px]">{ram.name}</p>
+                        <p className="font-medium max-w-[450px]">{ram.name}</p>
                         <div className="flex items-center gap-2">
                           <p className="flex">
                             {Array.from({ length: ram?.rating }).map(
@@ -205,30 +205,7 @@ const PcBuildPage = () => {
             Choose
           </button>
         </div>
-        {/* {ram && (
-          <div className="flex justify-between items-center gap-2  p-2">
-            <div className="flex items-center w-full">
-              <div className="flex flex-col items-center rounded-md transition-all duration-200">
-                <Image src={ram?.image} height={35} width={35} />
-              </div>
-              <div className="flex justify-between w-full gap-3">
-                <div>
-                  <p className="font-medium max-w-[250px]">{ram.name}</p>
-                  <p className="flex">
-                    {Array.from({ length: ram?.rating }).map((_, index) => (
-                      <span className="" key={index}>
-                        {createSVGIcon()}
-                      </span>
-                    ))}
-                  </p>
-                </div>
-                <p className="text-red-500 font-medium whitespace-nowrap">
-                  {ram.price} /-
-                </p>
-              </div>
-            </div>
-          </div>
-        )} */}
+
         <div className="border-b w-full border-gray-300 my-1"></div>
 
         <div className="flex justify-between items-center p-2">
@@ -237,7 +214,7 @@ const PcBuildPage = () => {
               <ImPowerCord size={30} className="text-[#384abb]" />
             </div>
             <div>
-              <p className="mt-1 text-xs text-gray-500">POWER SUPPLY</p>
+              <p className="mt-1 text-xs text-gray-600">POWER SUPPLY</p>
 
               {psu ? (
                 <div className="flex justify-between items-center gap-2 lg:w-[150%] py-2">
@@ -247,20 +224,22 @@ const PcBuildPage = () => {
                     </div>
                     <div className="flex justify-between w-full gap-3">
                       <div>
-                        <p className="font-medium max-w-[250px]">{psu.name}</p>
-                        <p className="flex">
-                          {Array.from({ length: psu?.rating }).map(
-                            (_, index) => (
-                              <span className="" key={index}>
-                                {createSVGIcon()}
-                              </span>
-                            )
-                          )}
-                        </p>
+                        <p className="font-medium max-w-[450px]">{psu.name}</p>
+                        <div className="flex items-center gap-2">
+                          <p className="flex">
+                            {Array.from({ length: psu?.rating }).map(
+                              (_, index) => (
+                                <span className="" key={index}>
+                                  {createSVGIcon()}
+                                </span>
+                              )
+                            )}
+                          </p>
+                          <p className="text-black font-semibold whitespace-nowrap text-[13px] mt-1">
+                            {psu.price} ৳
+                          </p>
+                        </div>
                       </div>
-                      <p className="text-red-500 font-medium whitespace-nowrap">
-                        {psu.price} /-
-                      </p>
                     </div>
                   </div>
                 </div>
@@ -279,30 +258,7 @@ const PcBuildPage = () => {
             Choose
           </button>
         </div>
-        {/* {psu && (
-          <div className="flex justify-between items-center gap-2  p-2">
-            <div className="flex items-center w-full">
-              <div className="flex flex-col items-center rounded-md transition-all duration-200">
-                <Image src={psu?.image} height={35} width={35} />
-              </div>
-              <div className="flex justify-between w-full gap-3">
-                <div>
-                  <p className="font-medium max-w-[250px]">{psu.name}</p>
-                  <p className="flex">
-                    {Array.from({ length: psu?.rating }).map((_, index) => (
-                      <span className="" key={index}>
-                        {createSVGIcon()}
-                      </span>
-                    ))}
-                  </p>
-                </div>
-                <p className="text-red-500 font-medium whitespace-nowrap">
-                  {psu.price} /-
-                </p>
-              </div>
-            </div>
-          </div>
-        )} */}
+
         <div className="border-b w-full border-gray-300 my-1"></div>
 
         <div className="flex justify-between items-center p-2">
@@ -311,7 +267,7 @@ const PcBuildPage = () => {
               <MdStorage size={30} className="text-[#384abb]" />
             </div>
             <div>
-              <p className="mt-1 text-xs text-gray-500">STORAGE</p>
+              <p className="mt-1 text-xs text-gray-600">STORAGE</p>
 
               {storage ? (
                 <div className="flex justify-between items-center gap-2 lg:w-[150%] py-2">
@@ -321,22 +277,24 @@ const PcBuildPage = () => {
                     </div>
                     <div className="flex justify-between w-full gap-3">
                       <div>
-                        <p className="font-medium max-w-[250px]">
+                        <p className="font-medium max-w-[450px]">
                           {storage?.name}
                         </p>
-                        <p className="flex">
-                          {Array.from({ length: storage?.rating }).map(
-                            (_, index) => (
-                              <span className="" key={index}>
-                                {createSVGIcon()}
-                              </span>
-                            )
-                          )}
-                        </p>
+                        <div className="flex items-center gap-2">
+                          <p className="flex">
+                            {Array.from({ length: storage?.rating }).map(
+                              (_, index) => (
+                                <span className="" key={index}>
+                                  {createSVGIcon()}
+                                </span>
+                              )
+                            )}
+                          </p>
+                          <p className="text-black font-semibold whitespace-nowrap text-[13px] mt-1">
+                            {storage.price} ৳
+                          </p>
+                        </div>
                       </div>
-                      <p className="text-red-500 font-medium whitespace-nowrap">
-                        {storage.price} /-
-                      </p>
                     </div>
                   </div>
                 </div>
@@ -355,30 +313,7 @@ const PcBuildPage = () => {
             Choose
           </button>
         </div>
-        {/* {storage && (
-          <div className="flex justify-between items-center gap-2  p-2">
-            <div className="flex items-center w-full">
-              <div className="flex flex-col items-center rounded-md transition-all duration-200">
-                <Image src={storage?.image} height={35} width={35} />
-              </div>
-              <div className="flex justify-between w-full gap-3">
-                <div>
-                  <p className="font-medium max-w-[250px]">{storage.name}</p>
-                  <p className="flex">
-                    {Array.from({ length: storage?.rating }).map((_, index) => (
-                      <span className="" key={index}>
-                        {createSVGIcon()}
-                      </span>
-                    ))}
-                  </p>
-                </div>
-                <p className="text-red-500 font-medium whitespace-nowrap">
-                  {storage.price} /-
-                </p>
-              </div>
-            </div>
-          </div>
-        )} */}
+
         <div className="border-b w-full border-gray-300 my-1"></div>
 
         <div className="flex justify-between items-center p-2">
@@ -387,7 +322,7 @@ const PcBuildPage = () => {
               <FiMonitor size={30} className="text-[#384abb]" />
             </div>
             <div>
-              <p className="mt-1 text-xs text-gray-500">MONITOR</p>
+              <p className="mt-1 text-xs text-gray-600">MONITOR</p>
 
               {monitor ? (
                 <div className="flex justify-between items-center gap-2 lg:w-[150%] py-2">
@@ -397,22 +332,24 @@ const PcBuildPage = () => {
                     </div>
                     <div className="flex justify-between w-full gap-3">
                       <div>
-                        <p className="font-medium max-w-[250px]">
+                        <p className="font-medium max-w-[450px]">
                           {monitor?.name}
                         </p>
-                        <p className="flex">
-                          {Array.from({ length: monitor?.rating }).map(
-                            (_, index) => (
-                              <span className="" key={index}>
-                                {createSVGIcon()}
-                              </span>
-                            )
-                          )}
-                        </p>
+                        <div className="flex items-center gap-2">
+                          <p className="flex">
+                            {Array.from({ length: monitor?.rating }).map(
+                              (_, index) => (
+                                <span className="" key={index}>
+                                  {createSVGIcon()}
+                                </span>
+                              )
+                            )}
+                          </p>
+                          <p className="text-black font-semibold whitespace-nowrap text-[13px] mt-1">
+                            {monitor.price} ৳
+                          </p>
+                        </div>
                       </div>
-                      <p className="text-red-500 font-medium whitespace-nowrap">
-                        {monitor.price} /-
-                      </p>
                     </div>
                   </div>
                 </div>
@@ -436,9 +373,11 @@ const PcBuildPage = () => {
 
         <div className="text-end">
           <button
-            disabled={!isDataFulfilled()}
-            onClick={() => toast.success("Build completed successfully")}
-            className="text-sm bg-[#3749bb] text-white px-4 py-1.5 my-5 font-medium rounded-sm uppercase disabled:bg-gray-400"
+            disabled={!isDataExist()}
+            onClick={() =>
+              toast.success("You have built your PC successfully!")
+            }
+            className="text-sm border border-[#3749bb] bg-[#3749bb] text-white hover:bg-white transition-all hover:text-black hover:border-black px-4 py-1.5 my-5 font-medium rounded-sm uppercase disabled:bg-gray-400"
           >
             Complete Build
           </button>
