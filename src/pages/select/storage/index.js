@@ -18,7 +18,9 @@ const SelectStoragePage = ({ storages }) => {
 
 export default SelectStoragePage;
 export const getServerSideProps = async () => {
-  const res = await fetch("http://localhost:5000/products?category=storage");
+  const res = await fetch(
+    "https://pc-builder-server-livid.vercel.app/products?category=storage"
+  );
   const data = await res.json();
   return {
     props: {
