@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { toast } from "react-hot-toast";
 import Image from "next/image";
+import Link from "next/link";
 const createSVGIcon = () => (
   <svg
     className="rating-icon"
@@ -31,6 +32,15 @@ const PcBuildPage = () => {
   const isDataExist = () => {
     return cpu && motherboard && ram && psu && storage && monitor;
   };
+
+  const totalPrice =
+    (cpu?.price || 0) +
+    (monitor?.price || 0) +
+    (motherboard?.price || 0) +
+    (ram?.price || 0) +
+    (storage?.price || 0) +
+    (psu?.price || 0);
+
   return (
     <div
       className="flex justify-center mx-auto  border-gray-300 mt-5 border px-4 py-2 shadow-md rounded-md mb-10"
@@ -44,7 +54,7 @@ const PcBuildPage = () => {
             PC Builder - Build Your Own Computer
           </h1>
           <button className="rounded-sm bg-[#3749bb] px-3 py-2 text-white text-sm">
-            1000৳
+            {totalPrice}৳
           </button>
         </div>
         <div className="flex justify-between items-center  p-2">
@@ -90,12 +100,12 @@ const PcBuildPage = () => {
             </div>
           </div>
 
-          <button
-            onClick={() => router.push("/select/cpu")}
+          <Link
+            href="/select/cpu"
             className=" outline-[#3749bb] bg-white border border-[#3749bb] font-medium text-xs  py-1 cursor-pointer px-3 rounded-sm hover:bg-[#3749bb] transition-all hover:text-white"
           >
             Choose
-          </button>
+          </Link>
         </div>
 
         <div className="border-b w-full border-gray-300 my-1"></div>
@@ -145,12 +155,12 @@ const PcBuildPage = () => {
             </div>
           </div>
 
-          <button
-            onClick={() => router.push("/select/motherboard")}
+          <Link
+            href="/select/motherboard"
             className="outline-[#3749bb] bg-white border border-[#3749bb] font-medium text-xs  py-1 cursor-pointer px-3 rounded-sm hover:bg-[#3749bb] transition-all hover:text-white"
           >
             Choose
-          </button>
+          </Link>
         </div>
 
         <div className="border-b w-full border-gray-300 my-1"></div>
@@ -198,12 +208,12 @@ const PcBuildPage = () => {
             </div>
           </div>
 
-          <button
-            onClick={() => router.push("/select/ram")}
+          <Link
+            href="/select/ram"
             className="outline-[#3749bb] bg-white border border-[#3749bb] font-medium text-xs  py-1 cursor-pointer px-3 rounded-sm hover:bg-[#3749bb] transition-all hover:text-white"
           >
             Choose
-          </button>
+          </Link>
         </div>
 
         <div className="border-b w-full border-gray-300 my-1"></div>
@@ -251,12 +261,12 @@ const PcBuildPage = () => {
             </div>
           </div>
 
-          <button
-            onClick={() => router.push("/select/psu")}
+          <Link
+            href="/select/psu"
             className="outline-[#3749bb] bg-white border border-[#3749bb] font-medium text-xs  py-1 cursor-pointer px-3 rounded-sm hover:bg-[#3749bb] transition-all hover:text-white"
           >
             Choose
-          </button>
+          </Link>
         </div>
 
         <div className="border-b w-full border-gray-300 my-1"></div>
@@ -306,12 +316,12 @@ const PcBuildPage = () => {
             </div>
           </div>
 
-          <button
-            onClick={() => router.push("/select/storage")}
+          <Link
+            href="/select/storage"
             className="outline-[#3749bb] bg-white border border-[#3749bb] font-medium text-xs  py-1 cursor-pointer px-3 rounded-sm hover:bg-[#3749bb] transition-all hover:text-white"
           >
             Choose
-          </button>
+          </Link>
         </div>
 
         <div className="border-b w-full border-gray-300 my-1"></div>
@@ -361,12 +371,12 @@ const PcBuildPage = () => {
             </div>
           </div>
 
-          <button
-            onClick={() => router.push("/select/monitor")}
+          <Link
+            href="/select/monitor"
             className="outline-[#3749bb] bg-white border border-[#3749bb] font-medium text-xs  py-1 cursor-pointer px-3 rounded-sm hover:bg-[#3749bb] transition-all hover:text-white"
           >
             Choose
-          </button>
+          </Link>
         </div>
 
         <div className="border-b w-full border-gray-300 my-1"></div>
