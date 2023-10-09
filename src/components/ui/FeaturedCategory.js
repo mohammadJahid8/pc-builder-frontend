@@ -13,7 +13,7 @@ const FeaturedCategory = () => {
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-4 mx-auto max-w-5xl mt-10">
         <div
           onClick={() => router.push("/cpu")}
-          className="border border-gray-300 max-w-[110px] w-full h-24 p-2 hover:shadow-lg hover:text-violet-600 shadow-gray-400 flex flex-col justify-center items-center rounded-md transition-all duration-200 cursor-pointer mx-auto"
+          className="border border-gray-300 max-w-[110px] w-full h-24 p-2 hover:shadow-lg hover:text-violet-600 shadow-gray-400 flex flex-col justify-center items-center rounded-md transition-all duration-200 cursor-pointer mx-auto bg-[#ebecf8]"
         >
           <BsCpuFill size={40} />
           <p className="mt-1">Processor</p>
