@@ -51,17 +51,19 @@ const ChooseProductCard = ({ product }) => {
       <div className="h-[200px] relative">
         <Image
           fill={true}
-          className="object-cover rounded-md"
+          className="object-cover rounded-md hover:opacity-80 transition-opacity duration-300 ease-in-out"
           src={image}
           alt=""
         />
       </div>
       <div className="px-2">
-        <h1 className="font-semibold mt-1 mb-2">{name}</h1>
+        <h1 className="font-semibold mt-1 mb-2 text-sm text-gray-800">
+          {name.length > 30 ? name.slice(0, 22) + "..." : name}
+        </h1>
       </div>
 
       <div className="p-2">
-        <div className="flex justify-between">
+        <div className="flex justify-between text-xs uppercase text-gray-800">
           <span className="">{newCategory}</span>
           <span
             className={`${
@@ -79,21 +81,21 @@ const ChooseProductCard = ({ product }) => {
               </span>
             ))}
           </span>
-          <span className="font-semibold text-red-500">
-            {product.price} <span className="">/-</span>
+          <span className="font-semibold text-sm">
+            {product.price} <span className="">৳</span>
           </span>
         </div>
 
         <button
           onClick={() => router.push(`/products/${_id}`)}
-          className="mt-3 text-center w-full bg-slate-800 text-white py-1.5 rounded-full font-medium text-xs"
+          className="mt-3 text-center w-full bg-blue-600 text-white py-1.5 rounded-md font-medium text-xs"
         >
           DETAILS
         </button>
 
         <button
           onClick={handlePcBuildFunc}
-          className="mt-3 text-center w-full bg-slate-800 text-white py-1.5 rounded-full font-medium text-xs"
+          className="mt-3 text-center w-full bg-green-600 text-white py-1.5 rounded-md font-medium text-xs"
         >
           ADD
         </button>
