@@ -12,7 +12,7 @@ const LoginPage = () => {
           className="flex justify-center items-center bg-white border border-gray-300 rounded-lg shadow-md px-6 py-2 text-base font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 w-full mb-2"
           onClick={() =>
             signIn("google", {
-              callbackUrl: "http://localhost:3000/",
+              callbackUrl: "https://pc-builder-kappa-beryl.vercel.app/",
             })
           }
         >
@@ -23,7 +23,7 @@ const LoginPage = () => {
           className="flex justify-center items-center bg-white border border-gray-300 rounded-lg shadow-md px-6 py-2 text-base font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 w-full"
           onClick={() =>
             signIn("github", {
-              callbackUrl: "http://localhost:3000/",
+              callbackUrl: "https://pc-builder-kappa-beryl.vercel.app/",
             })
           }
         >

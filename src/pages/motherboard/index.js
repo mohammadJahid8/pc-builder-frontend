@@ -1,3 +1,4 @@
+import Title from "@/components/shared/Title";
 import ProductCard from "@/components/ui/ProductCard";
 
 const MotherboardPage = ({ motherboard }) => {

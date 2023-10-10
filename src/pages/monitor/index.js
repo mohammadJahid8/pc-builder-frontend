@@ -1,5 +1,5 @@
+import Title from "@/components/shared/Title";
 import ProductCard from "@/components/ui/ProductCard";
-import React from "react";
 
 const MonitorPage = ({ monitors }) => {
   return (
