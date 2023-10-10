@@ -32,7 +32,7 @@ const SelectProductCard = ({ product }) => {
     router.push("/pc-builder");
   };
 
-  const createSVGIcon = () => (
+  const ratingIcon = () => (
     <svg
       className="rating-icon"
       aria-hidden="true"
@@ -75,7 +75,7 @@ const SelectProductCard = ({ product }) => {
           <span className="flex">
             {Array.from({ length: rating }).map((_, index) => (
               <span className="" key={index}>
-                {createSVGIcon()}
+                {ratingIcon()}
               </span>
             ))}
           </span>
