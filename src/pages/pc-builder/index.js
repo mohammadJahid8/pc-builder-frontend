@@ -4,7 +4,7 @@ import { CgSmartphoneRam } from "react-icons/cg";
 import { ImPowerCord } from "react-icons/im";
 import { MdStorage } from "react-icons/md";
 import { FiMonitor } from "react-icons/fi";
-import { useRouter } from "next/router";
+
 import { useSelector } from "react-redux";
 import { toast } from "react-hot-toast";
 import Image from "next/image";
@@ -24,7 +24,6 @@ const ratingIcon = () => (
 );
 
 const PcBuildPage = () => {
-  const router = useRouter();
   const { cpu, motherboard, ram, psu, storage, monitor } = useSelector(
     (state) => state.pcBuild
   );
