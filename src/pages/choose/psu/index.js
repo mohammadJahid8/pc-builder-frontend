@@ -1,3 +1,4 @@
+import Title from "@/components/shared/Title";
 import ChooseProductCard from "@/components/ui/ChooseProductCard";
 import React from "react";
 
