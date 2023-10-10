@@ -136,7 +136,7 @@ export default ProductDetailPage;
 
 export async function getStaticPaths() {
   const res = await fetch(
-    `https://pc-builder-server-livid.vercel.app/products`
+    `https://pc-builder-backend-h49o.onrender.com/products`
   );
   const products = await res.json();
   return {
@@ -150,7 +150,7 @@ export async function getStaticPaths() {
 export const getStaticProps = async (context) => {
   const { id } = context.params;
   const res = await fetch(
-    `https://pc-builder-server-livid.vercel.app/products/${id}`
+    `https://pc-builder-backend-h49o.onrender.com/products/${id}`
   );
   const data = await res.json();
   return {

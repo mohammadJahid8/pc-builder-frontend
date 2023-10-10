@@ -23,7 +23,7 @@ export default SelectCpuPage;
 
 export const getServerSideProps = async () => {
   const res = await fetch(
-    "https://pc-builder-server-livid.vercel.app/products?category=cpu"
+    "https://pc-builder-backend-h49o.onrender.com/products?category=cpu"
   );
   const data = await res.json();
   return {

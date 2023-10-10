@@ -20,7 +20,7 @@ export default MonitorPage;
 
 export const getStaticProps = async () => {
   const res = await fetch(
-    "https://pc-builder-server-livid.vercel.app/products?category=monitor"
+    "https://pc-builder-backend-h49o.onrender.com/products?category=monitor"
   );
   const data = await res.json();
   return {

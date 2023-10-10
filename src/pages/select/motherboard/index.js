@@ -20,7 +20,7 @@ export default SelectMotherboardPage;
 
 export const getServerSideProps = async () => {
   const res = await fetch(
-    "https://pc-builder-server-livid.vercel.app/products?category=motherboard"
+    "https://pc-builder-backend-h49o.onrender.com/products?category=motherboard"
   );
   const data = await res.json();
   return {

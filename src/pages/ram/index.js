@@ -19,7 +19,7 @@ export default RamPage;
 
 export const getStaticProps = async () => {
   const res = await fetch(
-    "https://pc-builder-server-livid.vercel.app/products?category=ram"
+    "https://pc-builder-backend-h49o.onrender.com/products?category=ram"
   );
   const data = await res.json();
   return {

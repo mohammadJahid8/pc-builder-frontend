@@ -22,7 +22,7 @@ const LoginPage = () => {
         <button
           className="flex justify-center items-center bg-white border border-gray-300 rounded-lg shadow-md px-6 py-2 text-base font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 w-full"
           onClick={() =>
-            signIn("google", {
+            signIn("github", {
               callbackUrl: "http://localhost:3000/",
             })
           }

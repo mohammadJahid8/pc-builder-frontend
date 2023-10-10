@@ -20,7 +20,7 @@ export default ProductPage;
 
 export const getStaticProps = async () => {
   const res = await fetch(
-    "https://pc-builder-server-livid.vercel.app/products"
+    "https://pc-builder-backend-h49o.onrender.com/products"
   );
   const data = await res.json();
   return {
