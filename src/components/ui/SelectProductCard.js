@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { handlePcBuild } from "@/redux/features/pcBuilder/pcBuilderSlice";
 
-const SelectProductCard = ({ product }) => {
+const ChooseProductCard = ({ product }) => {
   const dispatch = useDispatch();
   const { _id, name, category, price, image, status, rating } = product || {};
 
@@ -102,4 +102,4 @@ const SelectProductCard = ({ product }) => {
   );
 };
 
-export default SelectProductCard;
+export default ChooseProductCard;

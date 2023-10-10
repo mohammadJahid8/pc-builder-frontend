@@ -1,6 +1,6 @@
 import Navbar from "@/components/shared/Navbar";
 import Title from "@/components/shared/Title";
-import SelectProductCard from "@/components/ui/SelectProductCard";
+import ChooseProductCard from "@/components/ui/ChooseProductCard";
 import React from "react";
 
 const SelectCpuPage = ({ processors }) => {
@@ -11,7 +11,7 @@ const SelectCpuPage = ({ processors }) => {
           <Title text={"Processor"} />
           <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 p-3">
             {processors?.map((product) => (
-              <SelectProductCard product={product} key={product._id} />
+              <ChooseProductCard product={product} key={product._id} />
             ))}
           </div>
         </div>

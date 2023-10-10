@@ -100,7 +100,7 @@ const PcBuildPage = () => {
           </div>
 
           <Link
-            href="/select/cpu"
+            href="/choose/cpu"
             className=" outline-[#3749bb] bg-white border border-[#3749bb] font-medium text-xs  py-1 cursor-pointer px-3 rounded-sm hover:bg-[#3749bb] transition-all hover:text-white"
           >
             Choose
@@ -155,7 +155,7 @@ const PcBuildPage = () => {
           </div>
 
           <Link
-            href="/select/motherboard"
+            href="/choose/motherboard"
             className="outline-[#3749bb] bg-white border border-[#3749bb] font-medium text-xs  py-1 cursor-pointer px-3 rounded-sm hover:bg-[#3749bb] transition-all hover:text-white"
           >
             Choose
@@ -208,7 +208,7 @@ const PcBuildPage = () => {
           </div>
 
           <Link
-            href="/select/ram"
+            href="/choose/ram"
             className="outline-[#3749bb] bg-white border border-[#3749bb] font-medium text-xs  py-1 cursor-pointer px-3 rounded-sm hover:bg-[#3749bb] transition-all hover:text-white"
           >
             Choose
@@ -261,7 +261,7 @@ const PcBuildPage = () => {
           </div>
 
           <Link
-            href="/select/psu"
+            href="/choose/psu"
             className="outline-[#3749bb] bg-white border border-[#3749bb] font-medium text-xs  py-1 cursor-pointer px-3 rounded-sm hover:bg-[#3749bb] transition-all hover:text-white"
           >
             Choose
@@ -316,7 +316,7 @@ const PcBuildPage = () => {
           </div>
 
           <Link
-            href="/select/storage"
+            href="/choose/storage"
             className="outline-[#3749bb] bg-white border border-[#3749bb] font-medium text-xs  py-1 cursor-pointer px-3 rounded-sm hover:bg-[#3749bb] transition-all hover:text-white"
           >
             Choose
@@ -371,7 +371,7 @@ const PcBuildPage = () => {
           </div>
 
           <Link
-            href="/select/monitor"
+            href="/choose/monitor"
             className="outline-[#3749bb] bg-white border border-[#3749bb] font-medium text-xs  py-1 cursor-pointer px-3 rounded-sm hover:bg-[#3749bb] transition-all hover:text-white"
           >
             Choose
