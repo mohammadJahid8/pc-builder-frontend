@@ -1,42 +1,30 @@
-
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 const ProductCard = ({ product }) => {
   const { _id, name, category, price, image, status, rating } = product || {};
 
-  let newCategory = null;
-  if (category === "cpu") {
-    newCategory = "Processor";
-  }
-  if (category === "motherboard") {
-    newCategory = "Motherboard";
-  }
-  if (category === "ram") {
-    newCategory = "Ram";
-  }
-  if (category === "psu") {
-    newCategory = "Power Supply";
-  }
-  if (category === "storage") {
-    newCategory = "Storage";
-  }
-  if (category === "monitor") {
-    newCategory = "Monitor";
-  }
-  if (category === "others") {
-    newCategory = "Others";
-  }
+  const categoryMappings = {
+    cpu: "Processor",
+    motherboard: "Motherboard",
+    ram: "Ram",
+    psu: "Power Supply",
+    storage: "Storage",
+    monitor: "Monitor",
+    others: "Others",
+  };
 
-  let newStatus = null;
-  if (status === "inStock") {
-    newStatus = "In Stock";
-  }
-  if (status === "outOfStock") {
-    newStatus = "Out Of Stock";
-  }
+  const statusMappings = {
+    inStock: "In Stock",
+    outOfStock: "Out Of Stock",
+  };
+
+  const newCategory = categoryMappings[category] || null;
+  const newStatus = statusMappings[status] || null;
+
   const router = useRouter();
 
-  const createSVGIcon = () => (
+  const ratingIcon = () => (
     <svg
       className="rating-icon"
       aria-hidden="true"
@@ -51,24 +39,27 @@ const ProductCard = ({ product }) => {
   );
 
   return (
-    <div
-      onClick={() => router.push(`/products/${_id}`)}
+    <Link
+      href={`/products/${_id}`}
+      passHref
       className="max-w-[270px] w-full mx-auto border border-gray-300 bg-white rounded-md shadow-md cursor-pointer flex flex-col gap-2 justify-between"
     >
       <div className="h-[240px] relative">
         <Image
           fill={true}
-          className="object-cover rounded-md"
+          className="object-cover rounded-md hover:opacity-80 transition-opacity duration-300 ease-in-out"
           src={image}
           alt=""
         />
       </div>
       <div className="px-2">
-        <h1 className="font-semibold mt-1 mb-2">{name}</h1>
+        <h1 className="font-semibold mt-1 mb-2 text-sm text-gray-800">
+          {name.length > 30 ? name.slice(0, 22) + "..." : name}
+        </h1>
       </div>
 
       <div className="p-2">
-        <div className="flex justify-between">
+        <div className="flex justify-between text-xs uppercase text-gray-800">
           <span className="">{newCategory}</span>
           <span
             className={`${
@@ -81,15 +72,17 @@ const ProductCard = ({ product }) => {
         <div className="flex justify-between mt-3">
           <span className="flex">
             {Array.from({ length: rating }).map((_, index) => (
-              <span className="" key={index}>{createSVGIcon()}</span>
+              <span className="" key={index}>
+                {ratingIcon()}
+              </span>
             ))}
           </span>
-          <span className="font-semibold text-red-500">
-            {product.price} <span className="">/-</span>
+          <span className="font-semibold text-sm">
+            {product.price} <span className="">৳</span>
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
