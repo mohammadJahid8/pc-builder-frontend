@@ -1,11 +1,8 @@
 import Image from "next/image";
-import { useRouter } from "next/router";
+
 import React from "react";
 
-const ProductDetailPage = ({ product }) => {
-  const router = useRouter();
-  const { id } = router.query;
-
+const ProductDetails = ({ product }) => {
   const {
     name,
     category,
@@ -19,30 +16,19 @@ const ProductDetailPage = ({ product }) => {
     image,
   } = product || {};
 
-  let newCategory = null;
-  if (category === "cpu") {
-    newCategory = "Processor";
-  }
-  if (category === "motherboard") {
-    newCategory = "Motherboard";
-  }
-  if (category === "ram") {
-    newCategory = "Ram";
-  }
-  if (category === "psu") {
-    newCategory = "Power Supply";
-  }
-  if (category === "storage") {
-    newCategory = "Storage";
-  }
-  if (category === "monitor") {
-    newCategory = "Monitor";
-  }
-  if (category === "others") {
-    newCategory = "Others";
-  }
+  const categoryMap = {
+    cpu: "Processor",
+    motherboard: "Motherboard",
+    ram: "Ram",
+    psu: "Power Supply",
+    storage: "Storage",
+    monitor: "Monitor",
+    others: "Others",
+  };
 
-  const createSVGIcon = () => (
+  const newCategory = categoryMap[category] || null;
+
+  const ratingIcon = () => (
     <svg
       className="rating-icon"
       aria-hidden="true"
@@ -61,84 +47,98 @@ const ProductDetailPage = ({ product }) => {
       <div className="xl:flex">
         <div className="xl:flex-1">
           <div className="flex-1 relative w-full max-w-sm h-80 mx-auto">
-            <Image className="object-cover" fill={true} src={image} alt="" />
+            <Image
+              className="object-cover 
+            hover:scale-105 transition-all duration-500 ease-in-out transform"
+              fill={true}
+              src={image}
+              alt=""
+            />
           </div>
         </div>
         <div className="xl:flex-1">
-          <h2 className="text-lg md:text-2xl font-semibold text-violet-600">
+          <h2 className="text-lg md:text-xl font-semibold text-[#3749bb]">
             {name}
           </h2>
           <div className="mt-3">
-            <p className="bg-slate-200 text-sm py-1 px-2 rounded-full inline-block my-1">
-              Price : <span className="font-medium">{price}</span>
+            <p className="font-semibold text-gray-800 text-sm py-1 rounded-full inline-block my-1">
+              Price : <span className="font-medium">{price} ৳</span>
             </p>
             {status == "inStock" ? (
-              <p className="bg-slate-200 text-sm py-1 px-2 rounded-full mx-3 inline-block my-1">
+              <p className="font-semibold text-gray-800 text-sm py-1 rounded-full mx-3 inline-block my-1">
                 Status : <span className="font-medium">In stock</span>
               </p>
             ) : (
-              <p className="bg-slate-200 text-sm py-1 px-2 rounded-full mx-3 inline-block my-1">
+              <p className="font-semibold text-gray-800 text-sm py-1 rounded-full mx-3 inline-block my-1">
                 Status : <span className="font-medium ">Out of stock</span>
               </p>
             )}
-            <p className="bg-slate-200 text-sm py-1 px-2 rounded-full inline-block my-1">
+            <p className="font-semibold text-gray-800 text-sm py-1 rounded-full inline-block my-1">
               Category : <span className="font-medium">{newCategory}</span>
             </p>
           </div>
-          <div className="mt-3">
-            <p className="flex items-center gap-2">
+          <div className="mt-1">
+            <p className="flex items-center text-sm font-semibold text-gray-800 gap-2">
               Rating :{" "}
               <span className="flex">
                 {Array.from({ length: rating }).map((_, index) => (
                   <span className="" key={index}>
-                    {createSVGIcon()}
+                    {ratingIcon()}
                   </span>
                 ))}
               </span>
             </p>
-            <p className="flex items-center gap-2">
+            <p className="flex items-center text-sm font-semibold text-gray-800 gap-2">
               Average Rating :{" "}
               <span className="flex">
                 {Array.from({ length: averageRating }).map((_, index) => (
                   <span className="" key={index}>
-                    {createSVGIcon()}
+                    {ratingIcon()}
                   </span>
                 ))}
               </span>
             </p>
           </div>
           <div>
-            <h3 className="text-lg font-medium mt-3 mb-1">Key Features</h3>
+            <h3 className="text-sm font-semibold text-gray-800 mt-3 mb-1">
+              Key Features
+            </h3>
 
             {keyFeatures?.map((feature) => (
-              <p className="text-md leading-relaxed">{feature}</p>
+              <p className="text-md leading-relaxed text-sm text-gray-800">
+                {feature}
+              </p>
             ))}
           </div>
         </div>
       </div>
 
       <div className="mt-5">
-        <h3 className="text-xl font-medium mb-1">Description</h3>
-        <p className="text-justify leading-relaxed">{description}</p>
+        <h3 className=" font-semibold mb-1 text-sm text-gray-800">
+          Description
+        </h3>
+        <p className="text-justify leading-relaxed text-sm text-gray-800">
+          {description}
+        </p>
       </div>
 
       <div className="mt-5">
-        <h3 className="text-xl font-medium mb-1">Reviews</h3>
+        <h3 className="font-semibold text-sm text-gray-800 mb-1 ">Reviews</h3>
         {reviews?.map((review) => (
-          <p className="leading-relaxed">{review}</p>
+          <p className="text-sm text-gray-800">{review}</p>
         ))}
       </div>
     </div>
   );
 };
 
-export default ProductDetailPage;
+export default ProductDetails;
 
 export async function getStaticPaths() {
-  const res = await fetch(
+  const response = await fetch(
     `https://pc-builder-backend-h49o.onrender.com/products`
   );
-  const products = await res.json();
+  const products = await response.json();
   return {
     paths: products.map((product) => ({
       params: { id: product._id },
@@ -149,10 +149,10 @@ export async function getStaticPaths() {
 
 export const getStaticProps = async (context) => {
   const { id } = context.params;
-  const res = await fetch(
+  const response = await fetch(
     `https://pc-builder-backend-h49o.onrender.com/products/${id}`
   );
-  const data = await res.json();
+  const data = await response.json();
   return {
     props: {
       product: data,
